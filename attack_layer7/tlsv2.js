@@ -69,12 +69,12 @@ const embed = new Discord.MessageEmbed()
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['TLSv2'],
+  aliases: ['https'],
   permLevel: 0
 }
 
 exports.help = {
-  name: 'TLSv2',
+  name: 'https',
   description: 'Rabbitx',
-  usage: 'TLSv2'
+  usage: 'https'
 }
