@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 
 exports.run = async (client, message, args) => {
-
+const host = message.content.split (" ")[1]
 const ayarlar = require('../ayarlar.json');
 var room = ayarlar.commandroom;
 
@@ -14,7 +14,7 @@ if(!args[0]) {
 	const embed1 = new Discord.MessageEmbed()
 	.setColor('RANDOM')
 	.setTitle('WARRING')
-	.setDescription("`;scrape`")
+	.setDescription("`;scrape rawurlproxy`")
 	.setFooter("Please do not attack government server!")
 	message.channel.send(embed1);
 	return;
@@ -22,7 +22,7 @@ if(!args[0]) {
 
 // Command attack
 var exec = require('child_process').exec
-exec(`rm proxy.txt && wget https://raw.githubusercontent.com/apaple/Proxy/main/proxy.txt`, (error, stdout, stderr) => {
+exec(`rm proxy.txt && wget ${host}`, (error, stdout, stderr) => {
 });
 
 // Start Attacking
