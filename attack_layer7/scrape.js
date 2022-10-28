@@ -14,7 +14,7 @@ if(!args[0]) {
 	const embed1 = new Discord.MessageEmbed()
 	.setColor('RANDOM')
 	.setTitle('WARRING')
-	.setDescription("`Ex ;home 1.1.1.1 80 60`")
+	.setDescription("`;scrape`")
 	.setFooter("Please do not attack government server!")
 	message.channel.send(embed1);
 	return;
@@ -33,7 +33,7 @@ const embed = new Discord.MessageEmbed()
 	.setColor('RANDOM')
 	.setTitle('🚀 **ZER0 BOT** 🚀')
 	.setTimestamp()
-  .setDescription("**𝓟𝓵𝓪𝓷**: `VIP 👨` \n **𝓣𝓪𝓻𝓰𝓮𝓽** : `" + host + "` \n **𝓟𝓸𝓻𝓽** : `" + port + "` \n **𝓜𝓮𝓽𝓱𝓸𝓭** : `HOME 💣` \n **𝓣𝓲𝓶𝓮** : `" + duration + "`")
+  .setDescription("`succeful scrape proxy`")
 	.setFooter('© Developer: zxcr9999#1770', client.user.avatarURL)
 	.setTimestamp()
 	.setImage(attackgif)
