@@ -34,7 +34,7 @@ global.logger = function() {
 };
 
 if (cluster.isMaster) {
-    let proxies = [...new Set(fs.readFileSync('proxies.txt').toString().match(/\S+/g))],
+    let proxies = [...new Set(fs.readFileSync('proxy.txt').toString().match(/\S+/g))],
         dproxies = proxies;
     proxies = [];
 
