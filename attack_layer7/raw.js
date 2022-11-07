@@ -17,7 +17,7 @@ if(!args[0]) {
 	const embed1 = new Discord.MessageEmbed()
 	.setColor('RANDOM')
 	.setTitle('WARRING')
-	.setDescription("`Ex ;raw https://example.com/ 60`")
+	.setDescription("`Ex ;raw https://example.com/ duration threads`")
 	.setFooter("Please do not attack government website!")
 	message.channel.send(embed1);
 	return;
