@@ -4,7 +4,7 @@ exports.run = async (client, message, args) => {
 
 const host = message.content.split (" ")[1]
 const port = message.content.split (" ")[2]
-const reqip = message.content.split (" ")[4]
+const reqip = message.content.split (" ")[3]
 const ayarlar = require('../ayarlar.json');
 var room = ayarlar.commandroom;
 
