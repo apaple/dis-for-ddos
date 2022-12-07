@@ -16,10 +16,10 @@ if (message.channel.id != room) {
   }
 
 function Warn(message) {
-  var embed = new Discord.RichEmbed()
+  var embed0 = new Discord.MessageEmbed()
   .setTitle("WARNING")
   .setColor("RANDOM")
-  return embed;
+  return embed0;
 }
 
 function isLetter(c) {
