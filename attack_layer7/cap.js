@@ -17,7 +17,7 @@ if (message.channel.id != room) {
 
 function Warn(message) {
   var embed0 = new Discord.MessageEmbed()
-  .setTitle("WARNING")
+  .setTitle(message)
   .setColor("RANDOM")
   return embed0;
 }
