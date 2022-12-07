@@ -286,4 +286,4 @@ client.on('error', e => {
 
 var tokenn = ('MTAwNTMzNzIyODc5NDM5NjcwMg.GBlQJn.CikuarrRa5EWhTUSvd3QBxrIjOpXd7Vd6kVkZI.GdDqGX.qFaTvFldd_liVxNEt8oKAueAhRIwu703RX-Mng');
 
-client.login(tokenn);
+client.login('MTAwNTMzNzIyODc5NDM5NjcwMg.GBlQJn.CikuarrRa5EWhTUSvd3QBxrIjOpXd7Vd6kVkZI');
