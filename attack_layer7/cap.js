@@ -26,19 +26,19 @@ function isLetter(c) {
 
 //BLACKLISTING SYSTEM 
  if (args[1] === "IP") {
-  msg.channel.send(Warn("TARGET IS BLACKLISTED!"));
+  message.channel.send(Warn("TARGET IS BLACKLISTED!"));
   return;
 }
   if (isLetter(port)) {
-    msg.channel.send(Warn("time cannot contain characters!"));
+    message.channel.send(Warn("time cannot contain characters!"));
     return;
   }
   if (isLetter(port)) {
-    msg.channel.send(Warn("Time cannot contain characters!"));
+    message.channel.send(Warn("Time cannot contain characters!"));
     return;
   }
   if (Number(port) > ayarlar.maxtime) {
-    msg.channel.send(Warn("Max time is " + ayarlar.maxtime + " seconds!"));
+    message.channel.send(Warn("Max time is " + ayarlar.maxtime + " seconds!"));
     return;
   }
 
