@@ -102,12 +102,12 @@ const embed = new Discord.MessageEmbed()
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['cap'],
+  aliases: ['punchwibu'],
   permLevel: 0
 }
 
 exports.help = {
-  name: 'cap',
+  name: 'punchwibu',
   description: 'YUKAI',
-  usage: 'cap'
+  usage: 'punchwibu'
 }
