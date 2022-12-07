@@ -16,7 +16,7 @@ if (message.channel.id != room) {
   }
 
 function Warn(message) {
-  var embed = new discord.RichEmbed().setTitle(message).setColor("#CF9B10");
+  var embed = new Discord.RichEmbed().setTitle(message).setColor("#CF9B10");
   return embed;
 }
 
