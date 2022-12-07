@@ -24,19 +24,15 @@ if (message.channel.id != room) {
   msg.channel.send(Warn("TARGET IS BLACKLISTED!"));
   return;
 }
-  if (isLetter(args[2])) {
-    msg.channel.send(Warn("Port cannot contain characters!"));
+  if (isLetter(port)) {
+    msg.channel.send(Warn("time cannot contain characters!"));
     return;
   }
-  if (isLetter(args[3])) {
+  if (isLetter(port)) {
     msg.channel.send(Warn("Time cannot contain characters!"));
     return;
   }
-  if (Number(args[2]) > 65535) {
-    msg.channel.send(Warn("Max port size is 65535!"));
-    return;
-  }
-  if (Number(args[3]) > config.maxtime) {
+  if (Number(port) > ayarlar.maxtime) {
     msg.channel.send(Warn("Max time is " + ayarlar.maxtime + " seconds!"));
     return;
   }
