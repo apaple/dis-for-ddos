@@ -2,6 +2,9 @@ sudo apt install npm -y
 sudo apt install screen -y
 npm i chalk
 npm i request
+npm i libquery
+npm i ms
+npm i ping
 npm i random-ua
 npm i sync-request
 npm add sync-request
