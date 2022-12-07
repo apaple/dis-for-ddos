@@ -40,7 +40,7 @@ function isLetter(c) {
     return;
   }
   if (Number(port) > ayarlar.maxtime) {
-    message.channel.send(Warn("Max time is " + ayarlar.maxtime + " seconds!"));
+    message.channel.send(Warn("🚫 Max time is " + ayarlar.maxtime + " seconds! 🚫"));
     return;
   }
 
@@ -66,7 +66,7 @@ setTimeout(function(){
 
 const embed = new Discord.MessageEmbed()
 	.setColor('RANDOM')
-	.setTitle('🚀 **ZER0 BOT** 🚀')
+	.setTitle('☢️ **BIGMOM BOT** ☢️')
 	.setTimestamp()
   .setDescription("`SUCCEFUL ATTACK`")
 	.setFooter('© Developer: YUKAI', client.user.avatarURL)
