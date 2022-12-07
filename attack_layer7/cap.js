@@ -1,4 +1,11 @@
 const Discord = require("discord.js");
+const ms = require("ms");
+const ping = require("ping");
+const libquery = require("libquery");
+function Warn(msg) {
+  var embed = new discord.RichEmbed().setTitle(msg).setColor("#CF9B10");
+  return embed;
+}
 
 exports.run = async (client, message, args) => {
 
