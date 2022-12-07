@@ -12,6 +12,28 @@ if (message.channel.id != room) {
 	return;
   }
 
+//BLACKLISTING SYSTEM 
+ if (args[1] === "IP") {
+  msg.channel.send(Warn("TARGET IS BLACKLISTED!"));
+  return;
+}
+  if (isLetter(args[2])) {
+    msg.channel.send(Warn("Port cannot contain characters!"));
+    return;
+  }
+  if (isLetter(args[3])) {
+    msg.channel.send(Warn("Time cannot contain characters!"));
+    return;
+  }
+  if (Number(args[2]) > 65535) {
+    msg.channel.send(Warn("Max port size is 65535!"));
+    return;
+  }
+  if (Number(args[3]) > config.maxtime) {
+    msg.channel.send(Warn("Max time is " + ayarlar.maxtime + " seconds!"));
+    return;
+  }
+
 // Example command
 if(!args[0]) {
 	const embed1 = new Discord.MessageEmbed()
