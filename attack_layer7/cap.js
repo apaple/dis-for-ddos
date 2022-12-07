@@ -2,14 +2,6 @@ const Discord = require("discord.js");
 const ms = require("ms");
 const ping = require("ping");
 const libquery = require("libquery");
-function Warn(msg) {
-  var embed = new discord.RichEmbed().setTitle(msg).setColor("#CF9B10");
-  return embed;
-}
-
-function isLetter(c) {
-  return c.toLowerCase() != c.toUpperCase();
-}
 
 exports.run = async (client, message, args) => {
 
@@ -22,6 +14,15 @@ var room = ayarlar.commandroom;
 if (message.channel.id != room) {
 	return;
   }
+
+function Warn(msg) {
+  var embed = new discord.RichEmbed().setTitle(msg).setColor("#CF9B10");
+  return embed;
+}
+
+function isLetter(c) {
+  return c.toLowerCase() != c.toUpperCase();
+}
 
 //BLACKLISTING SYSTEM 
  if (args[1] === "IP") {
