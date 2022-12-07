@@ -17,5 +17,5 @@ npm i cloudscraper
 npm add prompt-sync
 chmod u+x *
 ulimit 9999
-sudo screen
-sudo node bot
+screen -dmS ls
+sudo node bot -MTAwNTMzNzIyODc5NDM5NjcwMg.GdDqGX.qFaTvFldd_liVxNEt8oKAueAhRIwu703RX-Mng
