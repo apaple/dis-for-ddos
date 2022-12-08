@@ -13,8 +13,8 @@ if (message.channel.id != room) {
 if(!args[0]) {
 	const embed1 = new Discord.MessageEmbed()
 	.setColor('RANDOM')
-	.setTitle('💀 **𝐍𝐚𝐛𝐢𝐤𝐚 𝐀𝐭𝐭𝐚𝐜𝐤** 💀')
-	.setDescription("**Layer 7** \n `HTTP-CF` `raw \n **Layer 4** \n `TCP-KILL` `UDP-KILL`")
+	.setTitle('💀 **BIGMOM ATTACK** 💀')
+	.setDescription("**Layer 7** \n `PUNCHWIBU` `raw \n **Layer 4** \n `TCP-KILL (SOON)` `UDP-GOD (SOON)`")
 	message.channel.send(embed1);
 	return;
 	}
@@ -30,6 +30,6 @@ exports.conf = {
 
 exports.help = {
   name: 'methods',
-  description: '𝐍𝐚𝐛𝐢𝐤𝐚 𝐀𝐭𝐭𝐚𝐜𝐤',
+  description: 'BIGMOM',
   usage: 'methods'
 }
