@@ -32,7 +32,7 @@ if(!args[0]) {
 	const embed1 = new Discord.MessageEmbed()
 	.setColor('RANDOM')
 	.setTitle('WARRING')
-	.setDescription("`Ex ;cap target time`")
+	.setDescription("`Ex ;cap target time api`")
 	.setFooter("Please do not attack government server!")
 	message.channel.send(embed1);
 	return;
