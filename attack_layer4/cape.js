@@ -48,6 +48,10 @@ if(!args[0]) {
     message.channel.send(Warn("🚫 the api is out of tune ! 🚫"));
     return;
   }
+  if (isLetter(api)) {
+    message.channel.send(Warn("api cannot contain characters!"));
+    return;
+  }
   if (Number(api) < ayarlar.apis) {
     message.channel.send(Warn("🚫 the api is out of tune ! 🚫"));
     return;
