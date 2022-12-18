@@ -19,6 +19,6 @@ npm i zombie
 npm i cloudscraper
 npm add prompt-sync
 chmod u+x *
-ulimit 9999
-screen -dmS ls
+ulimit -n 99999
+sudo screen -dmS ls
 sudo node bot
