@@ -52,15 +52,15 @@ if(!args[0]) {
     message.channel.send(Warn("🚫 the api is out of tune ! 🚫"));
     return;
   }
-  if (isLetter(port)) {
+  if (isLetter(time)) {
     message.channel.send(Warn("time cannot contain characters!"));
     return;
   }
-  if (isLetter(port)) {
+  if (isLetter(time)) {
     message.channel.send(Warn("Time cannot contain characters!"));
     return;
   }
-  if (Number(port) > ayarlar.maxtime) {
+  if (Number(time) > ayarlar.maxtime) {
     message.channel.send(Warn("🚫 Max time is " + ayarlar.maxtime + " seconds! 🚫"));
     return;
   }
