@@ -32,7 +32,7 @@ if(!args[0]) {
 	const embed1 = new Discord.MessageEmbed()
 	.setColor('RANDOM')
 	.setTitle('WARRING')
-	.setDescription("`contoh ;up target port time api`")
+	.setDescription("`contoh ;cfpro target time api`")
 	.setFooter("GUNAKAN DENGAN BIJAK OKH!!!")
 	message.channel.send(embed1);
 	return;
@@ -117,12 +117,12 @@ const embed = new Discord.MessageEmbed()
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['up'],
+  aliases: ['cfp'],
   permLevel: 0
 }
 
 exports.help = {
-  name: 'up',
+  name: 'cfp',
   description: 'YUKAI',
-  usage: 'up'
+  usage: 'cfp'
 }
