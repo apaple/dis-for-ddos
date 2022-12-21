@@ -12,6 +12,10 @@ npm i cluster
 npm i fs
 npm i http2
 npm i tls
+npm i cryptorandomstring
+npm i randomstring
+npm i cluster
+npm i url
 npm i superagent
 npm i superagent-proxy
 npm i axios
