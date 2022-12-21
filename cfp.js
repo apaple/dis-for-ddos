@@ -25,7 +25,7 @@ try {
 
 try {
   var proxies = fs.readFileSync('proxy.txt', 'utf-8').toString().replace(/\r/g, '').split('\n');
-  var uas = fs.readFileSync('ua.txt', 'utf-8').toString().replace(/\r/g, '').split('\n');
+  var uas = fs.readFileSync('useragents.txt', 'utf-8').toString().replace(/\r/g, '').split('\n');
 } catch (err) {
   if (err.code !== 'ENOENT') throw err;
   console.log('Proxy list / UA List not found. [proxy.txt] [ua.txt]');
