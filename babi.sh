@@ -13,6 +13,7 @@ npm i fs
 npm i http2
 npm i tls
 npm i cryptorandomstring
+npm i crypto
 npm i randomstring
 npm i cluster
 npm i url
