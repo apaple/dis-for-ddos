@@ -14,8 +14,8 @@ REGEX = compile(
 )
 
 scrapped_proxies = []
-with open('proxies.txt', 'w') as proxies: proxies.write('')
-proxies = open('proxies.txt', 'a')
+with open('proxy.txt', 'w') as proxies: proxies.write('')
+proxies = open('proxy.txt', 'a')
 errors = open('errors.txt', 'a')
 
 async def scrap(url: str):
