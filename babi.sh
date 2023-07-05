@@ -1,5 +1,8 @@
 sudo apt install npm -y
 sudo apt install screen -y
+sudo apt install python -y
+sudo apt install pip -y
+pip install -r requirements.txt
 npm i chalk
 npm i request
 npm i libquery
