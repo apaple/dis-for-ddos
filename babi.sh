@@ -1,8 +1,11 @@
-sudo apt install npm -y
-sudo apt install screen -y
-sudo apt install python -y
-sudo apt install pip -y
+yum install epel-release
+yum install npm -y
+yum install nodejs -y
+yum install screen -y
+yum install python -y
+yum install python3 -y
 pip install -r requirements.txt
+pip3 install pysocks
 npm i chalk
 npm i request
 npm i libquery
