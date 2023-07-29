@@ -1,4 +1,5 @@
-yum install epel-release
+yum install epel-release -y
+yum install wget -y
 yum install npm -y
 yum install nodejs -y
 yum install screen -y
