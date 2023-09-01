@@ -1,12 +1,12 @@
 use Socket;
 use strict;
  
-if ($#ARGV != 2) {
+if ($#ARGV != 1) {
   print " \n";
 
 print "
 Flood ByPass
-args -> perl Private Bypass.pl <host> <time>
+args -> perl Private Bypass.pl <host> <port> <time>
 ";
 exit(1);
 }
