@@ -2,8 +2,7 @@ yum install epel-release -y
 sudo add-apt-repository universe -y
 apt install python3 -y
 apt install python3-pip -y
-wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
-source ~/.profile
+wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash && source ~/.profile
 nvm install v16.0.0
 yum install wget -y
 yum install npm -y
@@ -41,4 +40,4 @@ npm add prompt-sync
 chmod u+x *
 ulimit -n 99999
 sudo screen -dmS ls
-sudo node bot
+node bot
