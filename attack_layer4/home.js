@@ -25,7 +25,7 @@ if(!args[0]) {
 
 // Command attack
 var exec = require('child_process').exec
-exec(`python3 proxyScraper.py && python3 proxyeagle.py 20 output.txt https`, (error, stdout, stderr) => {
+exec(`python3 proxyScraper.py -p http && python3 proxyeagle.py 80 output.txt https`, (error, stdout, stderr) => {
 });
 
 // Start Attacking
