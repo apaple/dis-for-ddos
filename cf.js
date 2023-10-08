@@ -26,7 +26,7 @@ if (process.argv.length < 8){
 let randomparam = false;
 
 var proxies = fs.readFileSync(process.argv[6], 'utf-8').toString().replace(/\r/g, '').split('\n');
-var usas = fs.readFileSync('ua.txt', 'utf-8').toString().replace(/\r/g, '').split('\n');
+var UAs = fs.readFileSync('ua.txt', 'utf-8').toString().replace(/\r/g, '').split('\n');
 var rate = process.argv[7];
 var target_url = process.argv[2];
 const target = target_url.split('""')[0];
@@ -158,7 +158,7 @@ function ra() {
     return rsdat;
 }
 
-const UAs = [
+const UbdAs = [
 "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36",
      'Mozilla/5.0 (Android; Linux armv7l; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 Fennec/10.0.1', 'Mozilla/5.0 (Android; Linux armv7l; rv:2.0.1) Gecko/20100101 Firefox/4.0.1 Fennec/2.0.1', 'Mozilla/5.0 (WindowsCE 6.0; rv:2.0.1) Gecko/20100101 Firefox/4.0.1',
      'Mozilla/5.0 (Android; Linux armv7l; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 Fennec/10.0.1', 'Mozilla/5.0 (Android; Linux armv7l; rv:2.0.1) Gecko/20100101 Firefox/4.0.1 Fennec/2.0.1', 'Mozilla/5.0 (WindowsCE 6.0; rv:2.0.1) Gecko/20100101 Firefox/4.0.1',
