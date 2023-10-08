@@ -26,6 +26,7 @@ if (process.argv.length < 8){
 let randomparam = false;
 
 var proxies = fs.readFileSync(process.argv[6], 'utf-8').toString().replace(/\r/g, '').split('\n');
+var usas = fs.readFileSync('ua.txt', 'utf-8').toString().replace(/\r/g, '').split('\n');
 var rate = process.argv[7];
 var target_url = process.argv[2];
 const target = target_url.split('""')[0];
