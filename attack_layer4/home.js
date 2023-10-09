@@ -17,7 +17,7 @@ if(!args[0]) {
 	const embed1 = new Discord.MessageEmbed()
 	.setColor('RANDOM')
 	.setTitle('WARRING')
-	.setDescription("`Ex ;scrape`")
+	.setDescription("`Ex ;scrape https/http`")
 	.setFooter("Please do not attack government server!")
 	message.channel.send(embed1);
 	return;
@@ -25,7 +25,7 @@ if(!args[0]) {
 
 // Command attack
 var exec = require('child_process').exec
-exec(`python3 proxyScraper.py -p http && python3 proxyeagle.py 80 output.txt https`, (error, stdout, stderr) => {
+exec(`python3 proxyScraper.py -p ${host} && python3 proxyeagle.py 80 output.txt https`, (error, stdout, stderr) => {
 });
 
 // Start Attacking
