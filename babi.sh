@@ -19,6 +19,7 @@ npm i libquery
 npm i ms
 npm i ping
 npm i random-ua
+npm i user-agents
 npm i sync-request
 npm add sync-request
 npm i cluster
