@@ -1,7 +1,6 @@
 https://raw.githubusercontent.com/roosterkid/openproxylist/main/HTTPS_RAW.txt
 https://www.proxydocker.com/en/proxylist/download?email=noshare&country=all&city=all&port=all&type=all&anonymity=all&state=all&need=all
 https://proxyspace.pro/http.txt
-http://worm.rip/http.txt
 https://api.openproxylist.xyz/http.txt
 https://raw.githubusercontent.com/UptimerBot/proxy-list/main/proxies/http.txt
 https://raw.githubusercontent.com/apaple/huas/main/scrape.js
