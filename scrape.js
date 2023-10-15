@@ -34,7 +34,7 @@ async function fetchProxies(url) {
                         fs.appendFileSync("output.txt", proxies[i] + "\n");
 
                         // Keluar dari loop jika jumlah proxy sudah mencapai 7000
-                        if (foundProxies.length >= 8000) {
+                        if (foundProxies.length >= 10000) {
                             break;
                         }
                     }
