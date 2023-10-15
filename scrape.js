@@ -2,7 +2,7 @@ const fs = require("fs");
 const https = require("https");
 
 // Daftar URL yang akan diambil datanya
-const urlList = fs.readFileSync('sources.txt', 'utf-8').toString().replace(/\r/g, '').split('\n');
+const urlList = fs.readFileSync('sources.txt', 'utf-8').toString().replace(/\r/g, "").split('\n');
 
 // Menghapus file lama (jika ada)
 if (fs.existsSync("proxy.txt")) {
