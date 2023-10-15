@@ -1,6 +1,6 @@
 const fs = require("fs");
 const https = require("https");
-
+var nigga = fs.readFileSync('sources.txt', 'utf-8').toString().replace(/\r/g, '').split('\n');
 // Daftar URL yang akan diambil datanya
 const urlList = [
     "https://api.proxyscrape.com/v2/?request=getproxies&protocol=http&timeout=10000&country=all&ssl=all&anonymity=anonymous",
