@@ -1,18 +1,8 @@
 const fs = require("fs");
 const https = require("https");
-var nigga = fs.readFileSync('sources.txt', 'utf-8').toString().replace(/\r/g, '').split('\n');
+
 // Daftar URL yang akan diambil datanya
-const urlList = [
-    "https://api.proxyscrape.com/v2/?request=getproxies&protocol=http&timeout=10000&country=all&ssl=all&anonymity=anonymous",
-    "https://raw.githubusercontent.com/clarketm/proxy-list/master/proxy-list-raw.txt",
-    "https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/http.txt",
-    "https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/http.txt",
-    "https://raw.githubusercontent.com/monosans/proxy-list/main/proxies/http.txt",
-    "https://raw.githubusercontent.com/hookzof/socks5_list/master/proxy.txt",
-    "https://proxy.test789590.com/"
-    ,
-    "https://raw.githubusercontent.com/Zaeem20/FREE_PROXIES_LIST/blob/master/http.txt"
-];
+const urlList = fs.readFileSync('sources.txt', 'utf-8').toString().replace(/\r/g, '').split('\n');
 
 // Menghapus file lama (jika ada)
 if (fs.existsSync("proxy.txt")) {
@@ -41,10 +31,10 @@ async function fetchProxies(url) {
 
                         // Tambahkan proxy ke dalam array found_proxies dan file proxy.txt
                         foundProxies.push(proxies[i]);
-                        fs.appendFileSync("proxy.txt", proxies[i] + "\n");
+                        fs.appendFileSync("output.txt", proxies[i] + "\n");
 
                         // Keluar dari loop jika jumlah proxy sudah mencapai 7000
-                        if (foundProxies.length >= 7000) {
+                        if (foundProxies.length >= 8000) {
                             break;
                         }
                     }
