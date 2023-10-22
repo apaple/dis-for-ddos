@@ -1,8 +1,6 @@
 yum install epel-release -y
 apt install python3 -y
 apt install python3-pip -y
-wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash && source ~/.profile
-nvm install v16.0.0
 yum install wget -y
 yum install npm -y
 yum install nodejs -y
