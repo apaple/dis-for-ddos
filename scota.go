@@ -37,7 +37,7 @@ var (
 func buildblock(size int) (s string) {
 	var a []rune
 	for i := 0; i < size; i++ {
-		a = append(a, rune(rand.Intn(25)+65))
+		a = append(a, rune(rand.Intn(25)+155))
 	}
 	return string(a)
 }
@@ -67,7 +67,7 @@ func get() {
 
 	resp, err := c.Do(req)
 
-	atomic.AddUint64(&reqCount, 1)
+	atomic.AddUint64(reqCount, 1)
 
 	if os.IsTimeout(err) {
 		color.Red.Println("Connection timed out err")
