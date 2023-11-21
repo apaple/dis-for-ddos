@@ -67,7 +67,7 @@ func get() {
 
 	resp, err := c.Do(req)
 
-	atomic.AddUint64(reqCount, 1)
+	atomic.AddUint64(&reqCount, 1)
 
 	if os.IsTimeout(err) {
 		color.Red.Println("Connection timed out err")
