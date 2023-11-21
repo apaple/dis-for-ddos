@@ -37,7 +37,7 @@ var (
 func buildblock(size int) (s string) {
 	var a []rune
 	for i := 0; i < size; i++ {
-		a = append(a, rune(rand.Intn(25)+155))
+		a = append(a, rune(rand.Intn(75)+1555))
 	}
 	return string(a)
 }
@@ -53,7 +53,7 @@ func get() {
 		Timeout: 3500 * time.Millisecond,
 	}
 
-	req, err := http.NewRequest("GET", host+param_joiner+buildblock(rand.Intn(7)+3)+"="+buildblock(rand.Intn(7)+3), nil)
+	req, err := http.NewRequest("GET", host+param_joiner+buildblock(rand.Intn(80)+3)+"="+buildblock(rand.Intn(7)+3), nil)
 	if err != nil {
 		fmt.Println(err)
 	}
