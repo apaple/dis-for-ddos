@@ -1,5 +1,6 @@
 yum install epel-release -y
 apt install python3 -y
+apt install npm -y
 apt install python3-pip -y
 yum install wget -y
 yum install npm -y
