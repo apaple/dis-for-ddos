@@ -126,6 +126,8 @@ func loop() {
 }
 
 func main() {
+	proxyList, err := loadProxyList()
+	if err != nil {
 	flag.StringVar(&host, "host", "", "Host address (e.g., https://example.com)")
 	flag.DurationVar(&duration, "time", 0, "Duration for which the requests should be sent (e.g., 10s or 1m)")
 
