@@ -92,7 +92,7 @@ func loop() {
 			return
 		}
 		go get()
-		time.Sleep(2000 * time.Microsecond)
+		time.Sleep(5000 * time.Microsecond)
 	}
 }
 
