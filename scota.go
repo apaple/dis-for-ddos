@@ -143,7 +143,7 @@ func main() {
 		color.Blue.Println("Example usage:\n\t go run hentai.go  --host https://example.com --time 30s")
 		os.Exit(1)
 	}
-	proxyList, err := loadProxyList()
+	proxyList, err := loadProxyList() // Use the proxyList from loadProxyList function
 	if err != nil {
 		fmt.Println("Error parsing proxy URL:", err)
 		return
