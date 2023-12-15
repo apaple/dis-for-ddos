@@ -2,9 +2,11 @@ package main
 
 import (
 	"flag"
+	"bufio"
 	"fmt"
 	"math/rand"
 	"net/http"
+	"net/url"
 	"os"
 	"os/signal"
 	"strings"
