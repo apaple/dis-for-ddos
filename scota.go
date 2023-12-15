@@ -34,7 +34,7 @@ var (
 	reqCount     uint64
 	duration     time.Duration
 	stopFlag     int32
-	proxyList    string
+	proxyList    byte
 )
 
 func loadProxyList() ([]string, error) {
