@@ -126,12 +126,12 @@ func loop() {
 }
 
 func main() {
-	proxyList, err := loadProxyList()
-	if err != nil {
 	flag.StringVar(&host, "host", "", "Host address (e.g., https://example.com)")
 	flag.DurationVar(&duration, "time", 0, "Duration for which the requests should be sent (e.g., 10s or 1m)")
 
 	flag.Parse()
+	proxyList, err := loadProxyList()
+	if err != nil {
 
 	if len(host) == 0 {
 		color.Red.Println("Missing host address.")
