@@ -126,12 +126,11 @@ func loop() {
 }
 
 func main() {
+	
 	flag.StringVar(&host, "host", "", "Host address (e.g., https://example.com)")
 	flag.DurationVar(&duration, "time", 0, "Duration for which the requests should be sent (e.g., 10s or 1m)")
 
 	flag.Parse()
-	proxyList, err := loadProxyList()
-	if err != nil {
 
 	if len(host) == 0 {
 		color.Red.Println("Missing host address.")
@@ -143,6 +142,11 @@ func main() {
 		color.Red.Println("Invalid duration. Please specify a positive duration.")
 		color.Blue.Println("Example usage:\n\t go run hentai.go  --host https://example.com --time 30s")
 		os.Exit(1)
+	}
+	proxyList, err := loadProxyList()
+	if err != nil {
+		fmt.Println("Error parsing proxy URL:", err)
+		return
 	}
 
 	color.Yellow.Println("Press control+c to stop")
