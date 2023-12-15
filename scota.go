@@ -36,6 +36,28 @@ var (
 	stopFlag     int32
 )
 
+func loadProxyList() error {
+    file, err := os.Open("proxy.txt")
+    if err != nil {
+        return err
+    }
+    defer file.Close()
+
+    scanner := bufio.NewScanner(file)
+    for scanner.Scan() {
+        proxyURL = "https://" + scanner.Text()
+        } else {
+        proxyURL = "http://" + scanner.Text()
+        }
+        proxyList = append(proxyList, proxyURL)
+    }
+
+    if err := scanner.Err(); err != nil {
+        return err
+    }
+    return nil
+}
+
 func buildblock(size int) (s string) {
 	var a []rune
 	for i := 0; i < size; i++ {
@@ -45,6 +67,11 @@ func buildblock(size int) (s string) {
 }
 
 func get() {
+	proxyURL, err := url.Parse(proxyList[rand.Intn(len(proxyList))])
+	if err != nil {
+		fmt.Println("Error parsing proxy URL:", err)
+		return
+	}
 	if strings.ContainsRune(host, '?') {
 		param_joiner = "&"
 	} else {
@@ -52,6 +79,9 @@ func get() {
 	}
 
 	c := http.Client{
+		Transport: &http.Transport{
+			Proxy: http.ProxyURL(proxyURLStruct),
+		},
 		Timeout: 3500 * time.Millisecond,
 	}
 
