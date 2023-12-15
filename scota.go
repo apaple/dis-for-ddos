@@ -36,23 +36,24 @@ var (
 	stopFlag     int32
 )
 
-func loadProxyList() error {
+func loadProxyList() ([]string, error) {
     file, err := os.Open("proxy.txt")
     if err != nil {
-        return err
+        return nil, err
     }
     defer file.Close()
 
     scanner := bufio.NewScanner(file)
+    var proxyList []string
     for scanner.Scan() {
         proxyURL := "https://" + scanner.Text() // or "https://" if using HTTPS proxy
         proxyList = append(proxyList, proxyURL)
     }
 
     if err := scanner.Err(); err != nil {
-        return err
+        return nil, err
     }
-    return nil
+    return proxyList, nil
 }
 
 func buildblock(size int) (s string) {
