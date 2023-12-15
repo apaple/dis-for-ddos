@@ -65,7 +65,7 @@ func buildblock(size int) (s string) {
 }
 
 func get() {
-	proxyURL, err := url.Parse(proxyList[rand.Intn(len(proxyList))])
+	proxyURLStruct, err := url.Parse(proxyList[rand.Intn(len(proxyList))])
 	if err != nil {
 		fmt.Println("Error parsing proxy URL:", err)
 		return
