@@ -34,10 +34,10 @@ var (
 	reqCount     uint64
 	duration     time.Duration
 	stopFlag     int32
-	proxyList    byte
+	proxyList    string
 )
 
-func loadProxyList() ([]string, error) {
+func loadProxyList() (string, error) {
     file, err := os.Open("proxy.txt")
     if err != nil {
         return nil, err
@@ -45,7 +45,7 @@ func loadProxyList() ([]string, error) {
     defer file.Close()
 
     scanner := bufio.NewScanner(file)
-    var proxyList []string
+    var proxyList string
     for scanner.Scan() {
         proxyURL := "https://" + scanner.Text() // or "https://" if using HTTPS proxy
         proxyList = append(proxyList, proxyURL)
@@ -66,7 +66,8 @@ func buildblock(size int) (s string) {
 }
 
 func get() {
-	proxyURLStruct, err := url.Parse(proxyList[rand.Intn(len(proxyList))])
+	proxy := string(proxyList[rand.Intn(len(proxyList))])
+	proxyURL, err := url.Parse(proxy)
 	if err != nil {
 		fmt.Println("Error parsing proxy URL:", err)
 		return
