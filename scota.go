@@ -45,10 +45,7 @@ func loadProxyList() error {
 
     scanner := bufio.NewScanner(file)
     for scanner.Scan() {
-        proxyURL = "https://" + scanner.Text()
-        } else {
-        proxyURL = "http://" + scanner.Text()
-        }
+        proxyURL := "https://" + scanner.Text() // or "https://" if using HTTPS proxy
         proxyList = append(proxyList, proxyURL)
     }
 
