@@ -122,7 +122,7 @@ const net = require("net");
          host: parsedProxy[0],
          port: ~~parsedProxy[1],
          address: parsedTarget.host + ":443",
-         timeout: 3
+         timeout: 6
      };
 
      Socket.HTTP(proxyOptions, (connection, error) => {
