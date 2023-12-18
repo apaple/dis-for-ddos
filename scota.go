@@ -2,6 +2,8 @@ package main
 
 import (
 	"flag"
+	"bufio"
+	"net/url"
 	"fmt"
 	"math/rand"
 	"net/http"
