@@ -67,7 +67,7 @@ func get() {
 			fmt.Println("Error parsing proxy URL:", err)
 			continue
 		}
-		proxyURLs = append(proxyURLs, proxyURL
+		proxyURLs = append(proxyURLs, proxyURL)
 	 }
 
 	         
