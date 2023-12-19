@@ -60,11 +60,11 @@ func get() {
 
 
 	transport := &http2.Transport{
-		AllowHTTP: true,
+		AllowHTTP: false,
 	}
 
 	c := http.Client{
-		Timeout:   3500 * time.Millisecond,
+		Timeout:   3600 * time.Millisecond,
 		Transport: &http2.Transport{DialTLS: transport.DialTLS},
 	}
 
@@ -102,7 +102,7 @@ func loop() {
 			return
 		}
 		go get()
-		time.Sleep(10000 * time.Microsecond)
+		time.Sleep(1000 * time.Microsecond)
 	}
 }
 
