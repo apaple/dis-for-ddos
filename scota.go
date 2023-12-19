@@ -63,7 +63,7 @@ func get() {
 	var proxyURLs []*url.URL
 	scanner := bufio.NewScanner(proxyFile)
 	for scanner.Scan() {
-		proxyStr := "https://" + scanner.Text() // Format proxy string
+		proxyStr := "http://" + scanner.Text() // Format proxy string
 		proxyURL, err := url.Parse(proxyStr)
 		if err != nil {
 			fmt.Println("Error parsing proxy URL:", err)
