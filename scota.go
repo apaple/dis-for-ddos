@@ -137,7 +137,7 @@ func main() {
 		atomic.StoreInt32(&stopFlag, 1)
 	}()
 
-	for i := 0; i < 3; i++ {
+	for i := 0; i < 2; i++ {
 		go loop()
 	}
 
