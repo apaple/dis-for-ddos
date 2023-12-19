@@ -64,7 +64,7 @@ func get() {
 	}
 
 	c := http.Client{
-		Timeout:   3600 * time.Millisecond,
+		Timeout:   4000 * time.Millisecond,
 		Transport: &http2.Transport{DialTLS: transport.DialTLS},
 	}
 
@@ -137,7 +137,7 @@ func main() {
 		atomic.StoreInt32(&stopFlag, 1)
 	}()
 
-	for i := 0; i < 5; i++ {
+	for i := 0; i < 10; i++ {
 		go loop()
 	}
 
