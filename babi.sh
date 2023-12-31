@@ -1,4 +1,5 @@
 yum install epel-release -y
+apt update -y
 apt install python3 -y
 apt install npm -y
 apt install python3-pip -y
@@ -12,6 +13,7 @@ pip install -r requirements.txt
 pip3 install pysocks
 pip3 install httpx
 pip3 install bs4
+pip3 install aiohttp
 npm i chalk
 npm i request
 npm i libquery
