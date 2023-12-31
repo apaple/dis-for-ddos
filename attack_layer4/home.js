@@ -17,15 +17,15 @@ if(!args[0]) {
 	const embed1 = new Discord.MessageEmbed()
 	.setColor('RANDOM')
 	.setTitle('WARRING')
-	.setDescription("`Ex ;scrape https/http`")
+	.setDescription("`Ex ;scrape`")
 	.setFooter("Please do not attack government server!")
 	message.channel.send(embed1);
 	return;
 	}
 
 // Command attack
-var exec = require('child_process').exec
-exec(`python3 proxyScraper.py -p ${host} && python3 proxyeagle.py 80 output.txt http`, (error, stdout, stderr) => {
+var exec = require('child_process').exaec
+exec(`python3 main.py`, (error, stdout, stderr) => {
 });
 
 // Start Attacking
