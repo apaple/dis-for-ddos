@@ -25,7 +25,7 @@ if(!args[0]) {
 
 // Command attack
 var exec = require('child_process').exaec
-exec(`rm -f proxy.txt && python3 main.py && chmod u+x proxy.txt`, (error, stdout, stderr) => {
+exec(`python3 main.py && rm -f proxy.txt`, (error, stdout, stderr) => {
 });
 
 // Start Attacking
