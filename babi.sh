@@ -14,6 +14,11 @@ pip3 install pysocks
 pip3 install httpx
 pip3 install bs4
 pip3 install aiohttp
+py -m pip install -r requirements.txt
+py -m pip install pysocks
+py -m pip install httpx
+py -m pip install bs4
+py -m pip install aiohttp
 npm i chalk
 npm i request
 npm i libquery
