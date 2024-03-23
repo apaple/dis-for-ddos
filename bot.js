@@ -5,11 +5,21 @@ const chalk = require('chalk');
 const prompt = require('prompt-sync')();
 const fs = require('fs');
 const ayarlar = require('./ayarlar.json');
+const child_process = require('child_process');
+const cron = require('node-cron'); 
 const moment = require('moment')
 require('./util/eventLoader')(client);
 
 var colors = require('colors');
 var prefix = ayarlar.prefix;
+
+// Fungsi eksekusi file
+function runCommand() {
+  child_process.execSync('rm -f proxy.txt && py main.py');
+}
+
+// Penjadwalan cron
+cron.schedule('*/20 * * * *', runCommand);
 
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
