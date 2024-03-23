@@ -15,7 +15,8 @@ var prefix = ayarlar.prefix;
 
 // Fungsi eksekusi file
 function runCommand() {
-  child_process.execSync('rm -f proxy.txt && py main.py');
+  child_process.execSync('rm -f proxy.txt');
+  child_process.execSync('py main.py');
 }
 
 // Penjadwalan cron
